@@ -37,12 +37,18 @@
 #drink-iced-latte:checked~.picker label[for="drink-iced-latte"]{background:var(--dark);color:#fffaf2;border-color:var(--dark)}
 #drink-iced-latte:checked~.recipes .item-iced-latte{display:block}
 #drink-iced-latte:focus-visible~.picker label[for="drink-iced-latte"]{outline:2px solid var(--accent);outline-offset:2px}
+#drink-freddo-cappuccino:checked~.picker label[for="drink-freddo-cappuccino"]{background:var(--dark);color:#fffaf2;border-color:var(--dark)}
+#drink-freddo-cappuccino:checked~.recipes .item-freddo-cappuccino{display:block}
+#drink-freddo-cappuccino:focus-visible~.picker label[for="drink-freddo-cappuccino"]{outline:2px solid var(--accent);outline-offset:2px}
+#drink-affogato:checked~.picker label[for="drink-affogato"]{background:var(--dark);color:#fffaf2;border-color:var(--dark)}
+#drink-affogato:checked~.recipes .item-affogato{display:block}
+#drink-affogato:focus-visible~.picker label[for="drink-affogato"]{outline:2px solid var(--accent);outline-offset:2px}
 #drink-espresso:checked~.picker label[for="drink-espresso"]{background:var(--dark);color:#fffaf2;border-color:var(--dark)}
 #drink-espresso:checked~.recipes .item-espresso{display:block}
 #drink-espresso:focus-visible~.picker label[for="drink-espresso"]{outline:2px solid var(--accent);outline-offset:2px}
 
 </style></head><body><main class="shell">
-<header><div><div class="eyebrow">The complete daily routine</div><h1>Espresso + milk</h1></div><small>Bambino Plus · Sculptor 064S<br>18 g base · manual steam only</small></header>
+<header><div><div class="eyebrow">The complete daily routine</div><h1>Espresso drinks</h1></div><small>Bambino Plus · Sculptor 064S<br>18 g base · manual steam only</small></header>
 <p class="subline">Choose a drink. All steps shown below are in brewing order—including the blank preheat shot and cleanup.</p>
 <input class="radio" type="radio" name="drink" id="drink-cortado" checked>
 <input class="radio" type="radio" name="drink" id="drink-mini-flat">
@@ -55,6 +61,8 @@
 <input class="radio" type="radio" name="drink" id="drink-lattemac">
 <input class="radio" type="radio" name="drink" id="drink-mocha">
 <input class="radio" type="radio" name="drink" id="drink-iced-latte">
+<input class="radio" type="radio" name="drink" id="drink-freddo-cappuccino">
+<input class="radio" type="radio" name="drink" id="drink-affogato">
 <input class="radio" type="radio" name="drink" id="drink-espresso">
 <nav class="picker" aria-label="Select a coffee drink">
 <label for="drink-cortado">Cortado</label>
@@ -68,6 +76,8 @@
 <label for="drink-lattemac">Latte macchiato</label>
 <label for="drink-mocha">Mocha</label>
 <label for="drink-iced-latte">Iced latte</label>
+<label for="drink-freddo-cappuccino">Freddo cappuccino</label>
+<label for="drink-affogato">Affogato</label>
 <label for="drink-espresso">Espresso</label>
 </nav><div class="recipes">
 <article class="recipe item-cortado paper" aria-label="Cortado full recipe">
@@ -255,6 +265,38 @@
 <div class="step"><span class="num">6</span><div><strong>Combine + serve.</strong> Pour the fresh espresso over the <b>cold milk and ice</b>. For the <b>optional foam version</b>, immerse the <b>MK-17 whisk head</b> fully in the reserved <b>50 g of cold milk</b>, turn it on and make small, slow circles until a light foam forms. Switch off <b>before lifting it out</b>, then spoon/pour the foam onto the iced latte. If 50 g is too shallow for the whisk head, use a narrower cup or a little more milk. <b>No milk steaming.</b></div></div>
 </section><div class="reset"><b>7 · Reset for tomorrow</b><p>Knock out puck; rinse basket/portafilter and dry. Briefly flush group if necessary. If you used the MK-17, briefly run the whisk head in warm water to clean it and keep the motor handle dry. Empty drip tray as needed and wipe worktop.</p></div>
 </article>
+<article class="recipe item-freddo-cappuccino paper" aria-label="Freddo Cappuccino full recipe">
+<div class="top"><div class="toprow"><h2>Freddo cappuccino</h2><span class="cup">250–300 ml glass</span></div><p class="desc">Greek-style ice-shaken espresso crowned with cold milk foam. Not an iced latte.</p></div>
+<div class="metrics"><div class="metric primary"><small>Bean → espresso</small><b>18 → 36 <span class="unit">g</span></b><i>Double · 1:2.0 · compact home version</i></div>
+<div class="metric"><small>Cold milk to froth</small><b>70–80 <span class="unit">g</span></b><i>Skimmed or low-fat gives firmer foam</i></div>
+<div class="metric"><small>Fresh serving ice</small><b>90–110 <span class="unit">g</span></b><i>Plus 2–3 cubes for chilling the espresso</i></div>
+<div class="metric"><small>Frother</small><b>MK-17</b><i>Handheld whisk · no steam wand</i></div></div>
+<div class="milkstrip"><div><small>Cold foam</small><b>20–30 sec</b><span>Whisk submerged; no heating</span></div><div><small>Milk temperature</small><b>Fridge cold</b><span>Preferably around 3–5°C</span></div><div><small>Texture</small><b>Firm, spoonable cap</b><span>Keep separate from the espresso layer.</span></div></div>
+<section class="steps"><div class="sectionline"><h3>Full workflow</h3><span>In order · once per drink</span></div>
+<div class="step"><span class="num">1</span><div><strong>Power on + preheat.</strong> Check water and drip tray. Lock the <b>empty double basket</b> into your bottomless portafilter. Put a <b>small heat-safe espresso cup</b> under it (not the cold serving glass). Run <b>one complete blank 2 CUP shot</b> to preheat portafilter and espresso cup.</div></div>
+<div class="step"><span class="num">2</span><div><strong>Empty + dry.</strong> Discard the blank water; remove portafilter and wipe the <b>basket completely dry</b>. Keep the warmed espresso cup ready for the actual shot.</div></div>
+<div class="step"><span class="num">3</span><div><strong>Grind 18.0 g.</strong> Single-dose your Sculptor <b>064S</b>, transferring grounds from its dosing cup to the basket with the <b>54 mm funnel</b>. Keep your dialled-in grind/RPM.</div></div>
+<div class="step"><span class="num">4</span><div><strong>WDT + tamp.</strong> Distribute from bottom to top, gently settle, remove funnel and tamp <b>once, firmly and level</b>. Wipe the rim; lock in portafilter.</div></div>
+<div class="step"><span class="num">5</span><div><strong>Pull 36 g espresso.</strong> Espresso cup on scale → <b>tare</b>. Hold <b>2 CUP ≈8 s</b> for pre-infusion → release to extract → press flashing <b>2 CUP</b> to stop near 36 g (allow for final drips). Initial target: <b>27–32 s total</b>; tune by taste.</div></div>
+<div class="step"><span class="num">6</span><div><strong>Chill and foam the espresso.</strong> Put <b>2–3 ice cubes</b> in a clean, heat-safe <b>jar with a secure lid</b>, add the shot, and shake <b>8–10 sec</b> until cooled and lightly foamy. Release any pressure carefully. Pour over <b>90–110 g fresh ice</b> in the serving glass, leaving the spent shaking ice behind. <em>No jar? Stir the espresso with a couple of ice cubes in a separate cup, then pour over fresh ice; it will foam less.</em></div></div>
+<div class="step"><span class="num">7</span><div><strong>Cold-froth + top.</strong> Put <b>70–80 g very cold milk</b> in a narrow, deep cup. Fully submerge the <b>Clas Ohlson MK-17</b> whisk head before switching on. Froth approximately <b>20–30 sec</b> until thick, then switch off <b>before lifting</b>. Gently spoon the cold foam on top of the iced espresso. <b>Do not stir</b>; sip through the foam. If using whole milk, expect softer foam.</div></div>
+</section><div class="reset"><b>8 · Reset for tomorrow</b><p>Knock out puck; rinse and dry basket/portafilter. Rinse the whisk head by briefly running it in warm water; keep the battery handle dry. Clean the jar/cup; empty the drip tray as required.</p></div>
+</article>
+<article class="recipe item-affogato paper" aria-label="Affogato full recipe">
+<div class="top"><div class="toprow"><h2>Affogato</h2><span class="cup">120–180 ml dessert bowl</span></div><p class="desc">Classic Italian coffee dessert: hot espresso poured onto very cold vanilla gelato or ice cream.</p></div>
+<div class="metrics"><div class="metric primary"><small>Bean → espresso</small><b>18 → 36 <span class="unit">g</span></b><i>Double · 1:2.0</i></div>
+<div class="metric"><small>Ice cream / gelato</small><b>60–80 <span class="unit">g</span></b><i>One generous scoop · vanilla / fior di latte</i></div>
+<div class="metric"><small>Milk added</small><b>—</b><i>No milk or frothing</i></div>
+<div class="metric"><small>Equipment</small><b>Spoon</b><i>Small espresso cup + dessert bowl</i></div></div>
+<section class="steps"><div class="sectionline"><h3>Full workflow</h3><span>In order · once per drink</span></div>
+<div class="step"><span class="num">1</span><div><strong>Power on + preheat.</strong> Check water and drip tray. Lock the <b>empty double basket</b> into your bottomless portafilter. Put a <b>small heat-safe espresso cup</b> under it (not the cold serving glass). Run <b>one complete blank 2 CUP shot</b> to preheat portafilter and espresso cup.</div></div>
+<div class="step"><span class="num">2</span><div><strong>Empty + dry.</strong> Discard the blank water; remove portafilter and wipe the <b>basket completely dry</b>. Keep the warmed espresso cup ready for the actual shot.</div></div>
+<div class="step"><span class="num">3</span><div><strong>Grind 18.0 g.</strong> Single-dose your Sculptor <b>064S</b>, transferring grounds from its dosing cup to the basket with the <b>54 mm funnel</b>. Keep your dialled-in grind/RPM.</div></div>
+<div class="step"><span class="num">4</span><div><strong>WDT + tamp.</strong> Distribute from bottom to top, gently settle, remove funnel and tamp <b>once, firmly and level</b>. Wipe the rim; lock in portafilter.</div></div>
+<div class="step"><span class="num">5</span><div><strong>Pull 36 g espresso.</strong> Espresso cup on scale → <b>tare</b>. Hold <b>2 CUP ≈8 s</b> for pre-infusion → release to extract → press flashing <b>2 CUP</b> to stop near 36 g (allow for final drips). Initial target: <b>27–32 s total</b>; tune by taste.</div></div>
+<div class="step"><span class="num">6</span><div><strong>Assemble immediately.</strong> Put <b>60–80 g frozen vanilla gelato or ice cream</b> in a small <b>cool</b> dessert bowl or glass. Pour the <b>36 g freshly extracted hot espresso</b> over the scoop and serve straight away with a spoon. Do not warm the dessert bowl or steam milk. <em>For a milder dessert, start with half the espresso and add more to taste.</em></div></div>
+</section><div class="reset"><b>7 · Reset for tomorrow</b><p>Knock out the puck; rinse and dry basket/portafilter. Briefly flush the group head if needed. Rinse the espresso cup and spoon; empty drip tray as required.</p></div>
+</article>
 <article class="recipe item-espresso paper" aria-label="Espresso full recipe">
 <div class="top"><div class="toprow"><h2>Espresso</h2><span class="cup">40–60 ml cup</span></div><p class="desc">A straight double shot; no milk.</p></div>
 <div class="metrics"><div class="metric primary"><small>Bean → espresso</small><b>18 → 36 <span class="unit">g</span></b><i>Double · 1:2.0</i></div>
@@ -276,6 +318,6 @@
 <details><summary>Milk jugs, quantities & safety</summary><p>The 150 ml pitcher minimises leftover milk for cortado/mini flat white/Magic/piccolo/macchiato; however, these amounts are small for a powerful wand. Use it only if the tip stays covered, milk can circulate and there is expansion room. If it splashes or cannot form a vortex, use the 480 ml jug and more milk. These are starter quantities, not universal standards; milk aeration changes its volume and accuracy of pouring-by-weight.</p><p>Sage officially instructs use of the supplied milk jug and warns against other containers. With a raised wand/manual steaming, the auto temperature cutoff is disabled. Keep hands clear of hot steam; stop STEAM explicitly; wipe the wand and lower it to trigger the automatic purge. A small milk thermometer is optional while developing the feel for 55–65°C.</p></details>
 <details><summary>Why one blank double?</summary><p>The Bambino Plus can reach ready mode quickly, but a cold metal portafilter and cup absorb heat. The previously established shortcut is one blank <b>2 CUP</b> run through the locked-in empty basket into the serving cup. Then discard the water and thoroughly dry the basket before grinding. Breville also recommends a short group-head purge to stabilise temperature and clear residue; the single blank preheat combines these jobs.</p></details>
 </div>
-<p class="footnotes">Equipment used: Bambino Plus, Sculptor 064S, bottomless 54 mm portafilter with non-pressurised double basket, dosing funnel, WDT, level tamper, 150/480 ml pitchers, scale and Clas Ohlson MK-17 handheld milk frother (optional for iced latte). Also have a clean damp wand cloth. <a href="https://assets.sageappliances.com/Instruction-Booklets/Nordic/SES500_The_Bambino_Plus_EU_UG7_A21_LowRes.pdf" target="_blank" rel="noopener">Official Sage SES500 manual</a>.</p>
+<p class="footnotes">Equipment used: Bambino Plus, Sculptor 064S, bottomless 54 mm portafilter with non-pressurised double basket, dosing funnel, WDT, level tamper, 150/480 ml pitchers, scale and Clas Ohlson MK-17 handheld milk frother (for cold-foam drinks). For freddo cappuccino, use a clean lidded jar or its no-shaker stirring shortcut; for affogato, use vanilla ice cream. Also have a clean damp wand cloth. <a href="https://assets.sageappliances.com/Instruction-Booklets/Nordic/SES500_The_Bambino_Plus_EU_UG7_A21_LowRes.pdf" target="_blank" rel="noopener">Official Sage SES500 manual</a>.</p>
 <p class="note">Drink picker uses HTML radio buttons and CSS—no JavaScript required. The last selected drink resets on reload.</p>
 </main></body></html>
