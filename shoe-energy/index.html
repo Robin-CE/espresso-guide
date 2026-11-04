@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#121b27"><meta name="description" content="Compare lab-measured shoe energy return and weight without mixing test protocols."><title>Shoe Energy Lab — mobile rankings, weight and stack</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#121b27"><meta name="description" content="Compare lab-measured shoe energy return and weight without mixing test protocols."><title>Shoe Energy Lab — mobile-first rankings</title>
 <style>
 :root{color-scheme:light;--ink:#182330;--muted:#6a7682;--muted2:#8e99a3;--cream:#f5f6f4;--card:#fff;--line:#e4e9e7;--accent:#bded6a;--dark:#121b27;--blue:#2462a1;--rr:#436c5f;--red:#a34535;--radius:17px;--shadow:0 5px 22px rgba(15,25,38,.055);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-feature-settings:"tnum" 1}
 *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-size:14px;-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button{cursor:pointer}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #91bb3b;outline-offset:2px} .hidden{display:none!important}
@@ -35,24 +35,194 @@
 .eligibility-filter label{display:block;font-weight:800;font-size:11px;color:var(--ink)}
 .eligibility-filter select{margin-top:7px;width:100%;padding:11px 10px;border-radius:9px;border:1px solid #d6e0da;background:white;color:var(--ink);font-size:13px}
 .eligibility-filter .stack-disclosure{padding:0;margin:9px 0 0}
+
+/* mobile-filter-redesign-v1.7 — do not overwrite with legacy template output */
+.controls{padding:0;overflow:hidden}
+.control-section{padding:18px 18px 19px}
+.control-section+.control-section{border-top:1px solid var(--line)}
+.controls .section-label{font-size:11px;letter-spacing:.10em;margin-bottom:10px}
+.controls .lab-switcher{margin-bottom:18px}
+.controls .lab-switcher button{min-height:46px;font-size:14px}
+.rank-modes{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:12px;align-items:end}
+.mode-field{min-width:0}
+.input-title{display:block;font-size:12px;font-weight:750;color:#4c5c68;line-height:1.4}
+.mode-field .switcher{margin-top:8px}
+.zone-switcher{gap:2px;padding:3px;background:#f1f4f2;border-radius:11px}
+.zone-switcher button{padding:11px 7px;min-height:43px;border-radius:9px;font-size:12px}
+.controls select{appearance:auto;min-height:46px;width:100%;margin-top:8px;border:1px solid #d9e1de;background:#fff;color:var(--ink);border-radius:11px;padding:10px 10px;font-size:13px;font-weight:650;text-overflow:ellipsis}
+.search-block{margin-top:17px}
+.search-field{position:relative;display:flex;align-items:center;background:#f6f8f7;border:1px solid #dfe6e2;border-radius:12px;min-height:48px}
+.search-field svg{position:absolute;left:14px;color:#87948e;pointer-events:none}
+.search-field input{width:100%;min-width:0;border:0;outline:0;background:transparent;border-radius:12px;padding:13px 13px 13px 41px;font-size:14px;color:var(--ink)}
+.search-field input:focus-visible{outline:3px solid #91bb3b;outline-offset:2px}
+.search-field input::placeholder{color:#8e9994}
+.text-reset{display:block;margin:6px 0 0 auto;padding:8px 1px;background:none;border:none;color:#5d6b73;font-size:12px;font-weight:700;text-decoration:underline;text-decoration-color:#d4dfd9;text-underline-offset:3px;min-height:38px}
+.inclusion-controls{background:#fff}
+.eligibility-label{margin:0 0 17px}
+.purpose-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}
+.purpose-all{border:0;background:none;color:#5c7164;font-size:12px;padding:9px 2px;min-height:38px;font-weight:700;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px}
+.purpose-all[aria-pressed=true]{color:#315019;text-decoration-color:#9cbc71}
+.purpose-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.purpose-option{border:1px solid #dce4df;background:#fff;border-radius:11px;min-width:0;min-height:51px;padding:9px 8px;white-space:normal;line-height:1.25;text-align:center;overflow-wrap:anywhere;font-size:12px;font-weight:750;color:#4b5966}
+.purpose-option[aria-pressed=true]{border-color:#a9d078;background:#eaf5d9;color:#243a1b}
+.purpose-option:hover,.purpose-all:hover{filter:brightness(.98)}
+.controls details>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:50px;padding:14px 18px;color:#263541;font-size:13px}
+.controls details>summary::-webkit-details-marker{display:none}
+.controls details>summary::marker{content:""}
+.more-filters,.method-notes{border-top:1px solid var(--line);background:#fbfcfb}
+.method-notes{background:#fff}
+.summary-left{display:flex;align-items:center;gap:9px;min-width:0}
+.summary-left svg{flex:0 0 auto;color:#73847a}
+.controls .chevron{transition:transform .15s ease;flex:0 0 auto;color:#7b8780}
+.controls details[open]>summary>.chevron{transform:rotate(180deg)}
+.active-badge{background:#e9f5d6;border-radius:40px;padding:4px 7px;font-size:10px;font-weight:800;color:#36512a;white-space:nowrap}
+.active-badge[hidden]{display:none}
+.advanced-body{padding:3px 18px 18px}
+.advanced-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.advanced-group{border-top:1px solid #e4ebe7;margin-top:19px;padding-top:16px}
+.advanced-heading{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:10px;font-size:13px}
+.advanced-heading span{font-size:11px;color:#738179}
+.advanced-range{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.controls .advanced-range input{min-width:0;height:46px;margin-top:6px;border-radius:10px;padding:10px;font-size:13px;border-color:#d7e1da}
+.advanced-range input::placeholder{color:#9da8a1}
+.stack-zone-label{margin-bottom:10px}
+.notes-body{padding:0 18px 16px}
+.controls .note-entry{border-top:1px solid #e7ece8}
+.controls .note-entry>summary{padding:12px 0;min-height:44px;font-size:12px;font-weight:700}
+.controls .note-entry>summary::after{content:'+';font-size:19px;font-weight:500;color:#75857a}
+.controls .note-entry[open]>summary::after{content:'–'}
+.notes-body .note-entry p,.method-endnote{font-size:11px;color:#6b7981;line-height:1.55;margin:0 0 14px}
+.method-endnote{padding-top:11px;margin:0;border-top:1px solid #e7ece8}
+.filter-status{margin:2px 1px 14px;display:flex;gap:7px;flex-wrap:wrap;align-items:baseline;line-height:1.45;min-width:0;font-size:12px;color:#4d6069}
+.status-eyebrow{color:#8a9992;font-size:10px;font-weight:850;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+#active-filter-summary{min-width:0;overflow-wrap:anywhere;font-weight:650}
+.results-head{margin-top:13px}
+.shoe-list{grid-template-columns:minmax(0,1fr)}
+.shoe{min-width:0;max-width:100%}
+.shoe-bottom{flex-wrap:wrap;min-width:0}
+.shoe-top{min-width:0}
+@media(max-width:719px){
+ .controls{border-radius:16px;box-shadow:0 4px 17px rgba(15,25,38,.035)}
+ .shell{padding:14px 12px 110px}
+ .hero{padding:calc(env(safe-area-inset-top) + 16px) max(17px,env(safe-area-inset-left)) 19px}
+ .hero h1{font-size:29px;margin:12px 0 6px}
+ .hero p{font-size:12px;line-height:1.4}
+ .hero-stats{margin-top:12px}
+ .hero-stat{padding:6px 9px;font-size:10px}
+ .control-section{padding:17px 16px 18px}
+ .controls details>summary{padding-left:16px;padding-right:16px}
+ .advanced-body{padding:3px 16px 18px}
+ .notes-body{padding:0 16px 16px}
+ .filter-status{margin:16px 4px 9px}
+}
+@media(min-width:720px){
+ .controls{position:sticky;top:20px}
+ .shoe-list{grid-template-columns:minmax(0,1fr)}
+ .controls .rank-modes{grid-template-columns:1fr;gap:12px}
+ .results-head{margin-top:18px}
+ .filter-status{margin-top:0}
+}
+@media(min-width:1000px){.desktop-grid{grid-template-columns:295px minmax(0,1fr)}.shoe-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:360px){.rank-modes{grid-template-columns:1fr}.purpose-grid{gap:7px}.purpose-option{padding:9px 6px;font-size:11.5px}}
+
 </style>
 </head>
 <body>
-<div class="hero"><div class="hero-wrap"><div class="topline"><div class="mark"><div class="logo" aria-hidden="true">↗</div> SHOE ENERGY LAB</div><div class="version">SNAPSHOT · 04 NOV 2026</div></div><h1>Find the energy.<br>Mind the weight.</h1><p>260 RTINGS table results plus independently stored RunRepeat measurements. Filter by non-EVA foam and heel stack ≥30 mm; lab sources stay separate.</p><div class="hero-stats"><span class="hero-stat"><b id="n-shoes">—</b>models</span><span class="hero-stat"><b id="n-rt">—</b>RTINGS</span><span class="hero-stat"><b id="n-rr">—</b>RunRepeat</span><span class="hero-stat"><b id="n-both">—</b>both labs</span></div></div></div>
+<div class="hero"><div class="hero-wrap"><div class="topline"><div class="mark"><div class="logo" aria-hidden="true">↗</div> SHOE ENERGY LAB</div><div class="version">SNAPSHOT · 04 NOV 2026</div></div><h1>Find the energy.<br>Mind the weight.</h1><p>Independent RTINGS &amp; RunRepeat measurements. Labs are never averaged.</p><div class="hero-stats"><span class="hero-stat"><b id="n-shoes">—</b>models</span><span class="hero-stat"><b id="n-rt">—</b>RTINGS</span><span class="hero-stat"><b id="n-rr">—</b>RunRepeat</span><span class="hero-stat"><b id="n-both">—</b>both labs</span></div></div></div>
 <nav class="bottomnav" aria-label="Main navigation"><button data-page="ranking" class="active"><span class="navicon">▤</span>Rankings</button><button data-page="compare"><span class="navicon">▥</span>Compare <span class="count" id="selected-count">0</span></button><button data-page="about"><span class="navicon">ⓘ</span>Method</button></nav>
 <main class="shell">
-<div class="page active" id="ranking-page"><div class="desktop-grid"><aside class="controls"><div class="section-label">LABORATORY</div><div class="switcher" id="lab-switch"><button data-lab="rtings" aria-pressed="true">RTINGS</button><button data-lab="runrepeat" aria-pressed="false">RunRepeat</button></div><div class="fieldrow"><label>Test zone<select id="zone-select"><option value="forefoot">Forefoot</option><option value="heel">Heel</option></select></label><label>Rank by<select id="sort-select"><option value="ratio">Energy / gram</option><option value="er">Energy return %</option><option value="weight">Lightest shoe</option><option value="stack-high">Highest stack</option><option value="stack-low">Lowest stack</option><option value="name">Name A–Z</option></select></label></div><div class="searchrow"><input type="search" id="search" placeholder="Search shoes or brands…" aria-label="Search shoes"><button class="outline-btn" id="reset">Reset</button></div><div class="eligibility-filter"><label>Eligibility · measured heel stack ≥30 mm and non-EVA foam<select id="eligibility-select"><option value="screened_non_eva">Eligible by reported properties</option><option value="all">All shoes (including unverified/excluded)</option><option value="pending_foam">Foam status unresolved</option><option value="excluded_eva">EVA-only (excluded)</option><option value="below_30">Heel stack below 30 mm</option><option value="pending_stack">Stack data missing</option></select></label><p class="stack-disclosure">Table readings are user-supplied RTINGS data. Review dates/revisions have not been verified for every row.</p></div><div class="filterrow" id="categories" aria-label="Shoe purpose"><button class="chip" data-category="all" aria-pressed="true">All purposes</button><button class="chip" data-category="supershoe" aria-pressed="false">Supershoes</button><button class="chip" data-category="supertrainer" aria-pressed="false">Supertrainers</button><button class="chip" data-category="performance_trainer" aria-pressed="false">Performance trainers</button><button class="chip" data-category="eva_other_daily_trainers" aria-pressed="false" title="Includes EVA, low-stack and pending-eligibility shoes">EVA/other daily trainers</button></div><div class="fieldrow"><label>Brand<select id="brand-select"><option value="all">All brands</option></select></label><label>Plate<select id="plate-select"><option value="all">All types</option><option value="carbon">Carbon recorded</option><option value="other">Non-carbon / other</option><option value="none">No plate recorded</option></select></label></div><details class="physical-filters" id="physical-filters" open>
-<summary>Weight &amp; stack height <span id="active-phys-filter">Measured values only when filtering</span></summary>
-<div class="phys-grid">
- <div class="phys-group"><div class="phys-title">Weight <span>Selected laboratory · g</span></div>
-  <div class="minmax"><label>Min <input id="weight-min" type="number" inputmode="decimal" min="0" max="500" placeholder="Any" aria-label="Minimum shoe weight in grams"></label><label>Max <input id="weight-max" type="number" inputmode="decimal" min="0" max="500" placeholder="Any" aria-label="Maximum shoe weight in grams"></label></div>
- </div>
- <div class="phys-group"><div class="phys-title">Stack height <span>RunRepeat · mm</span></div>
-  <label class="stack-label">Measured zone<select id="stack-zone"><option value="heel">Heel</option><option value="forefoot">Forefoot</option></select></label>
-  <div class="minmax"><label>Min <input id="stack-min" type="number" inputmode="decimal" min="0" max="80" step="0.5" placeholder="Any" aria-label="Minimum stack height in millimetres"></label><label>Max <input id="stack-max" type="number" inputmode="decimal" min="0" max="80" step="0.5" placeholder="Any" aria-label="Maximum stack height in millimetres"></label></div>
- </div>
-</div><p class="stack-disclosure">Heel stack: RTINGS supplied table where present; otherwise provisional RunRepeat mirror. Forefoot stack: RunRepeat mirror only. The table’s mislabeled “forefoot stack” column is actually <strong>heel-to-toe drop</strong>, not forefoot stack.</p>
-</details><div class="fineprint"><b>Energy per gram</b> = selected lab’s energy return (%) ÷ that lab’s shoe weight (g). No cross-lab averaging. <a href="#about" id="read-method">Methodology</a></div></aside><section><div class="results-head"><h2>Rankings</h2><div class="results-meta"><span id="result-count">—</span> · <span id="rank-desc">RTINGS forefoot</span></div></div><div class="shoe-list" id="shoe-list"></div></section></div></div>
+<div class="page active" id="ranking-page"><div class="desktop-grid"><aside class="controls" aria-label="Ranking and shoe filters" data-ui-version="1.7">
+  <section class="control-section ranking-controls" aria-label="Ranking controls">
+    <div class="section-label">LABORATORY</div>
+    <div class="switcher lab-switcher" id="lab-switch" role="group" aria-label="Laboratory">
+      <button type="button" data-lab="rtings" aria-pressed="true">RTINGS</button>
+      <button type="button" data-lab="runrepeat" aria-pressed="false">RunRepeat</button>
+    </div>
+    <div class="rank-modes">
+      <div class="mode-field">
+        <div class="input-title" id="test-zone-title">Test zone</div>
+        <div class="switcher zone-switcher" role="group" aria-labelledby="test-zone-title">
+          <button type="button" data-zone="forefoot" aria-pressed="true">Forefoot</button>
+          <button type="button" data-zone="heel" aria-pressed="false">Heel</button>
+        </div>
+      </div>
+      <label class="mode-field input-title" for="sort-select">Rank by
+        <select id="sort-select">
+          <option value="ratio">Energy / gram</option>
+          <option value="er">Energy return %</option>
+          <option value="weight">Lightest shoe</option>
+          <option value="stack-high">Highest stack</option>
+          <option value="stack-low">Lowest stack</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </label>
+    </div>
+    <div class="search-block">
+      <div class="search-field">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.8" cy="10.8" r="7.5"/><path d="m16.5 16.5 5 5"/></svg>
+        <input type="search" id="search" placeholder="Search shoes or brands" autocomplete="off" aria-label="Search shoes or brands">
+      </div>
+      <button class="text-reset" type="button" id="reset">Reset filters</button>
+    </div>
+  </section>
+  <section class="control-section inclusion-controls" aria-label="Eligibility and purpose">
+    <label class="input-title eligibility-label" for="eligibility-select">Eligibility
+      <select id="eligibility-select">
+        <option value="screened_non_eva">Eligible</option>
+        <option value="all">All shoes</option>
+        <option value="pending_foam">Pending foam</option>
+        <option value="excluded_eva">EVA only</option>
+        <option value="below_30">Below 30 mm</option>
+        <option value="pending_stack">Stack missing</option>
+      </select>
+    </label>
+    <div class="purpose-header">
+      <div class="input-title" id="purpose-heading">Purpose</div>
+      <button type="button" class="purpose-all" data-category="all" aria-pressed="true">All purposes</button>
+    </div>
+    <div class="purpose-grid" id="categories" role="group" aria-labelledby="purpose-heading">
+      <button type="button" class="purpose-option" data-category="supershoe" aria-pressed="false">Supershoes</button>
+      <button type="button" class="purpose-option" data-category="supertrainer" aria-pressed="false">Supertrainers</button>
+      <button type="button" class="purpose-option" data-category="performance_trainer" aria-pressed="false">Performance trainers</button>
+      <button type="button" class="purpose-option" data-category="eva_other_daily_trainers" aria-pressed="false">EVA/other daily trainers</button>
+    </div>
+  </section>
+  <details class="more-filters" id="more-filters">
+    <summary><span class="summary-left"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M7 12h10M10 17h4"/></svg><strong>More filters</strong><span class="active-badge" id="advanced-filter-count" hidden>0 active</span></span><svg aria-hidden="true" class="chevron" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+    <div class="advanced-body">
+      <div class="advanced-two">
+        <label class="input-title" for="brand-select">Brand
+          <select id="brand-select"><option value="all">All brands</option></select>
+        </label>
+        <label class="input-title" for="plate-select">Plate
+          <select id="plate-select"><option value="all">All types</option><option value="carbon">Carbon recorded</option><option value="other">Non-carbon / other</option><option value="none">No plate recorded</option></select>
+        </label>
+      </div>
+      <div class="advanced-group"><div class="advanced-heading"><strong>Weight</strong><span>Selected laboratory · g</span></div>
+        <div class="minmax advanced-range">
+          <label>Min <input id="weight-min" type="number" inputmode="decimal" min="0" max="500" placeholder="Min g" aria-label="Minimum shoe weight in grams"></label>
+          <label>Max <input id="weight-max" type="number" inputmode="decimal" min="0" max="500" placeholder="Max g" aria-label="Maximum shoe weight in grams"></label>
+        </div>
+      </div>
+      <div class="advanced-group"><div class="advanced-heading"><strong>Stack height</strong><span>Measured · mm</span></div>
+        <label class="input-title stack-zone-label" for="stack-zone">Zone <select id="stack-zone"><option value="heel">Heel</option><option value="forefoot">Forefoot</option></select></label>
+        <div class="minmax advanced-range">
+          <label>Min <input id="stack-min" type="number" inputmode="decimal" min="0" max="80" step="0.5" placeholder="Min mm" aria-label="Minimum stack height in millimetres"></label>
+          <label>Max <input id="stack-max" type="number" inputmode="decimal" min="0" max="80" step="0.5" placeholder="Max mm" aria-label="Maximum stack height in millimetres"></label>
+        </div>
+      </div>
+    </div>
+  </details>
+  <details class="method-notes" id="method-notes">
+    <summary><span class="summary-left"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-9v.5"/></svg><strong>Data &amp; methodology</strong></span><svg aria-hidden="true" class="chevron" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+    <div class="notes-body">
+      <details class="note-entry"><summary>About eligibility</summary><p>Eligible shoes have reported non-EVA primary foam and measured heel stack at least 30 mm. Source verification is provisional for some shoes; pending chemistry remains pending, not presumed EVA.</p></details>
+      <details class="note-entry"><summary>About RTINGS data</summary><p>Some measurements come from a user-provided comparison-table snapshot. Individual review dates and revisions have not been verified for every observation. RTINGS and RunRepeat measurements are not harmonized.</p></details>
+      <details class="note-entry"><summary>About stack data</summary><p>Heel stack uses RTINGS measurements where available, otherwise provisional RunRepeat-derived values. Forefoot stack is sourced separately from the RunRepeat mirror. Heel-to-toe drop is not forefoot stack height.</p></details>
+      <p class="method-endnote"><strong>Energy / gram</strong> = selected lab’s ER percentage ÷ its measured weight. Never an average across laboratories. <a id="read-method" href="#about">Full methodology</a></p>
+    </div>
+  </details>
+</aside><section class="results-panel"><div class="filter-status" role="status" aria-live="polite" aria-atomic="true"><span class="status-eyebrow">Active filters</span><span id="active-filter-summary">RTINGS · Forefoot · Eligible · All purposes</span></div><div class="results-head"><h2>Rankings</h2><div class="results-meta"><span id="result-count">—</span> · <span id="rank-desc">RTINGS forefoot</span></div></div><div class="shoe-list" id="shoe-list"></div></section></div></div>
 <div class="page" id="compare-page"><div class="section-title"><h2>Compare shoes</h2><span>Up to 3 models</span></div><p class="smallmuted">Add shoes from Rankings. This page displays each selected shoe using the current laboratory and zone.</p><div id="compare-list" class="compare-grid"></div><div class="note">Cross-laboratory percentages are <b>NOT_HARMONIZED</b>. Switch laboratories rather than averaging the two test results.</div></div>
 <div class="page" id="about-page"><div class="section-title"><h2>Methodology</h2></div><div class="subpanel" style="margin-top:0"><h2>What these numbers mean</h2><p><strong>Energy return (%)</strong> is the measured recovery in the laboratory’s compression test. The forefoot and heel are different measurements. <strong>Energy return per gram</strong> divides the selected laboratory’s percentage by the same laboratory’s whole-shoe weight.</p><p>Percentage points per gram is a custom comparative metric, not energy in joules, a standardized efficiency measurement, or a validated predictor of running economy.</p><p><strong>RTINGS and RunRepeat use distinct testing protocols.</strong> Their numbers are shown independently. Cross-lab differences are for context only and are marked <code>NOT_HARMONIZED</code>.</p></div><div class="subpanel"><h2>Data quality &amp; coverage</h2><p id="coverage-description"></p><p>The data originates from the <strong>audited v1.5 SQLite working copy</strong>, not the immutable archival parent. The supplied 260-row RTINGS table is retained separately because per-review dates and revision identifiers were absent. Displayed RTINGS table values are provisionally attributed; underlying reviewed measurements are preserved. RunRepeat-derived mirror values are also provisional. Every model now has a provisional purpose label: Supershoe (racing), Supertrainer (premium performance training), Performance trainer (versatile/daily with advanced foam) or EVA/other daily trainers (not meeting or not yet proven to meet the foam/stack requirements). The last label is a catch-all, NOT a statement that the shoe contains EVA. Individual review purpose classification has been checked for selected models; other role labels remain editorial and provisional, with evidence notes in shoe details.</p><p><strong>Foam:</strong> Individual-reviewed foam chemistry and RTINGS table-reported primary foam are separate evidence sources. Missing or unknown foam types remain pending, not assumed EVA. Branded names are not proof of polymer chemistry. Reported eligibility is provisional until individual review verification.</p><p>Thresholds requiring review: energy return outside 20–95%, weight outside 80–500 g, forefoot–heel difference over 20 pp, cross-lab energy return difference over 15 pp, or weight difference over 30 g/15%. Flags are retained rather than silently correcting source values.</p></div><div class="subpanel"><h2>Purpose labels vs. eligibility</h2><p><strong>Supershoe:</strong> primarily racing. <strong>Supertrainer:</strong> designed around premium faster/long-run training. <strong>Performance trainer:</strong> versatile or general road training with eligible non-EVA foam and ≥30 mm heel stack. <strong>EVA/other daily trainers:</strong> models that fail at least one criterion, OR have unresolved eligibility; the name is a broad display group, not chemical proof of EVA. All labels preserve separate eligibility statuses. Classification is provisional unless an individual source directly supports it.</p><p>Open an individual shoe to inspect the classification rationale and source evidence.</p></div><div class="subpanel"><h2>Data and updates</h2><p>This website is a static, published <strong>snapshot</strong>. New verified database or table imports require a fresh data.js deployment; edits to the immutable archival parent are prohibited.</p><p id="snapshot-details"></p></div></div>
 </main><div class="footer">Independent analysis interface · source attribution inside each shoe · no commercial affiliations</div>
