@@ -1,34 +1,27 @@
-# Shoe Energy Lab v1.9 — Combined ER/g mode
+# Shoe Energy Lab v2.6 — audited trail backfill
 
-This is a presentation-only release that adds **Combined** alongside **RTINGS** and **RunRepeat**. No SQLite or underlying `data.js` observations were changed.
+This release preserves the published v2.5 road dataset and adds a source-audited RunRepeat trail catalogue snapshot dated 19 November 2026.
 
-## Calculation
+## Coverage
 
-For each matching shoe and zone (`forefoot` or `heel`):
+- 496 shoe identities: 317 road and 179 trail.
+- 179 unique official RunRepeat trail catalogue slugs across six catalogue pages.
+- 179 exact original-review slug and official Trail-fact checks.
+- 132 trail shoes with a same-source RunRepeat ER% and whole-shoe-weight pair.
+- 179 complete heel/forefoot stack pairs, 178 lug-depth observations, and 78 forefoot-traction observations.
+- No heel-traction observations are currently available.
+- Zero exact trail-slug matches in `rocker1904/shoe-lab` at commit `83f9f54aa8d1c86903c2d2fe1a206e101637872b`; no trail value was taken from that mirror.
 
-- `rtings_ratio = rtings_energy_return_percent / rtings_whole_shoe_weight_g`
-- `runrepeat_ratio = runrepeat_energy_return_percent / runrepeat_whole_shoe_weight_g`
-- `combined_ratio = (rtings_ratio + runrepeat_ratio) / 2`
+Missing values remain unavailable rather than zero. Branded foam names are not polymer proof. Chemistry families are recorded only when the original review text explicitly names them, and trail eligibility remains pending until layer assignment is supported.
 
-A shoe ranks in **Combined** only if *both* laboratory ratios are valid for the selected zone; same-source stored ratios must match ER/weight within 0.0001 and nonzero weights are required. Percentages, weights, and laboratory methods are **never averaged, harmonized, or used to create a physical combined measurement**. Combined is an intentionally user-requested, uncalibrated, equal-weight index marked `NOT_HARMONIZED`. Different lab protocols can materially affect the ranking.
+## Interface
 
-Combined mode disables the irrelevant single-source `Energy return %` and `Lightest shoe` sort choices. Stack and name sorts remain available but include only shoes with both laboratory ratios. Weight filtering in Combined requires *both* lab weights to independently satisfy the bounds; it never invents an average weight. Clicking a shoe shows each original source and the combined calculation. Cross-source provenance, lab-specific verification status, and flags remain available.
+The Rankings page now provides Road, Trail and All terrain views. Trail mode uses RunRepeat and includes ER/g, energy return, weight, stack, lug depth, forefoot traction and heel shock-absorption rankings. Shoe details expose the original review, method version, audit state, stack, foam evidence and trail-specific measurements.
 
-## Coverage (2026-11-04 dataset)
+RTINGS and RunRepeat remain separate laboratory sources. Combined ER/g is an explicitly `NOT_HARMONIZED` arithmetic mean of the two independently calculated source-specific ratios and is unavailable for trail-only records.
 
-- 312 shoe identities.
-- 76 have valid forefoot and heel ratios in both labs.
-- 64 of those meet the provisionally eligible non-EVA and >=30 mm heel-stack screen.
-- The RTINGS user-pasted table is a provisional snapshot, and the RunRepeat mirror has unverified provenance; the Combined index is NOT_HARMONIZED.
+## Version and update discipline
 
-## Files and future builds
+The v2.6 audited SQLite stores the exact original v2.5 road payload for every road identity and adds trail observations with source and review-page hashes. Versioned CSV, ranking and spreadsheet exports accompany the database outside this Pages repository.
 
-Published source paths in `Robin-CE/espresso-guide`:
-
-- `shoe-energy/index.html` — responsive selectors, warnings, documented method.
-- `shoe-energy/app.js` — client-only Combined ratio computation and mobile interactions.
-- `shoe-energy/data.js` — UNCHANGED from v1.8 (sha256 should match the prior version).
-
-The archived `apply_combined_v19.py` applies the v1.9 UI patch to v1.8 source files; `test_combined_v19.py` validates arithmetic and interactions with headless Chromium at 375, 390, 430, 768 and 1440px.
-
-When new verified database observations arrive, the existing daily automation should regenerate only `shoe-energy/data.js`, maintaining the present index/app files; preserve the archival database and historical measurements. Subsequent full UI rebuilds must reapply v1.9 patch or a semantically equivalent verified Combined feature.
+The existing daily update automation and version history are not changed by this release. Future data-only refreshes should preserve `index.html` and `app.js`, regenerate `data.js` from an audited database, retain unavailable values as missing, and create a new version rather than overwriting an archival release.
